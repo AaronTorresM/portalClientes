@@ -273,7 +273,78 @@ body {
   color: #002554;
 }
 
-/* Timeline */
+
+.navbar {
+  min-height: 80px;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+}
+
+.navbar-toggle {
+  /* (80px - button height 34px) / 2 = 23px */
+  margin-top: 23px;
+  padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 26.5px;
+    padding-bottom: 26.5px;
+    line-height: 27px;
+  }
+}
+
+.navbar-custom {
+  background-color: #002554 !important;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
+
+a.textMenuStyle {
+  color: white !important;
+  font-weight: bold;
+}
+
+a.disabled.textMenuStyle {
+  color: rgb(117, 117, 117) !important;
+}
+
+.h-55px {
+  height: 55px !important;
+}
+
+.line-h-3 {
+  line-height: 3;
+}
+
+li.active {
+  background-color: #0074b2ce !important;
+}
+
+.loginButtonMenu {
+  width: 9rem;
+  text-align-last: center;
+}
+
+
+/* Timeline
 .timeline,
 .timeline-horizontal {
   list-style: none;
@@ -409,9 +480,9 @@ body {
 }
 .timeline-horizontal .timeline-item {
   display: table-cell;
-  height: 149px;
+  height:149px;
   width: 20%;
-  min-width: 206px; /* 320px */
+  min-width: 206px; // 320px
   float: none !important;
   padding-left: 0px;
   padding-right: 20px;
@@ -446,73 +517,79 @@ body {
   top: auto;
   bottom: 0px;
   left: 43px;
+} */
+
+/* estilo timeline-per */
+
+.timeline {
+  margin-top: 15px;
+  list-style-type: none;
+  display: flex;
+  align-items: relative;
+  justify-content: center;
 }
 
-.navbar {
-  min-height: 80px;
+.li {
+  transition: all 200ms ease-in;
 }
 
-.navbar-brand {
-  padding: 0 15px;
-  height: 80px;
-  line-height: 80px;
+.status {
+  padding: 0px 15px;
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #D6DCE0;
+  position: relative;
+  transition: all 200ms ease-in;
+}
+.status h4 {
+	margin-top: 10px;
+	color: #758D96;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+.status:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  position: absolute;
+  top: -15px;
+  transition: all 200ms ease-in;
 }
 
-.navbar-toggle {
-  /* (80px - button height 34px) / 2 = 23px */
-  margin-top: 23px;
-  padding: 9px 10px !important;
+.li.complete .status {
+  border-top: 2px solid #00AFD7;
 }
-
-@media (min-width: 768px) {
-  .navbar-nav > li > a {
-    /* (80px - line-height of 27px) / 2 = 26.5px */
-    padding-top: 26.5px;
-    padding-bottom: 26.5px;
-    line-height: 27px;
-  }
+.li.complete .status:before {
+  background-color: #00AFD7;
+  border: none;
+  transition: all 200ms ease-in;
 }
-
-.navbar-custom {
-  background-color: #002554 !important;
-}
-/* change the brand and text color */
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
-  color: rgba(255, 255, 255, 0.8);
-}
-/* change the link color */
-.navbar-custom .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
-}
-/* change the color of active or hovered links */
-.navbar-custom .nav-item.active .nav-link,
-.navbar-custom .nav-item:hover .nav-link {
-  color: #ffffff;
-}
-
-a.textMenuStyle {
-  color: white !important;
+.li.complete .status h4 {
+  font-size: 18px;
+  color: #00AFD7;
+  position: relative;
+  text-align: center;
   font-weight: bold;
 }
 
-a.disabled.textMenuStyle {
-  color: rgb(117, 117, 117) !important;
-}
+@media (min-device-width: 320px) and (max-device-width: 700px) {
+  .timeline {
+    list-style-type: none;
+    display: block;
+  }
 
-.h-55px {
-  height: 55px !important;
-}
+  .li {
+    transition: all 200ms ease-in;
+    display: flex;
+    width: inherit;
+  }
 
-.line-h-3 {
-  line-height: 3;
-}
-
-li.active {
-  background-color: #0074b2ce !important;
-}
-
-.loginButtonMenu {
-  width: 9rem;
-  text-align-last: center;
+  .status:before {
+    top: 30%;
+    transition: all 200ms ease-in;
+  }
 }
